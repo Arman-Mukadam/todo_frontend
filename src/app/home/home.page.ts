@@ -96,7 +96,6 @@ export class HomePage {
   }
 
   editTask(task: Todos) {
-    console.log(this.beforeEdit, this.afterEdit);
     if (this.afterEdit !== this.beforeEdit && task.todo.trim().length > 0) {
       this.todoService.updateTodo(task.id, task.todo)
         .subscribe(

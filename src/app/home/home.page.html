@@ -29,11 +29,14 @@
         <ion-button fill="clear" (click)="!task.editing?before(task):after(task);">
           <ion-icon [name]="task.editing?'checkmark-done':'open-outline'"></ion-icon>
         </ion-button>
-
         <ion-button fill="clear" color="danger" (click)="deleteTask(task.id)"><ion-icon
             name="trash"></ion-icon></ion-button>
-
       </div>
+    </div>
+    <div class="error-text">
+      @if(task.todo.trim().length === 0){
+      <span>Please Enter Something</span>
+      }
     </div>
     }
 
