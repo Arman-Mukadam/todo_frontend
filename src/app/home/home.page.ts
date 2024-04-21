@@ -85,7 +85,7 @@ export class HomePage {
   after(task: Todos) {
     this.afterEdit = task.todo;
     if (this.afterEdit !== this.beforeEdit) {
-      this.editTask(task);
+      this.updateTask(task);
     } else {
       this.beforeEdit = '';
     }
@@ -95,16 +95,13 @@ export class HomePage {
     this.currentlyEditingTask = null;
   }
 
-  editTask(task: Todos) {
+  updateTask(task: Todos) {
     if (this.afterEdit !== this.beforeEdit && task.todo.trim().length > 0) {
-      this.todoService.updateTodo(task.id, task.todo)
+      this.todoService.updateTodo(task.id, task.todo.trim())
         .subscribe(
           updatedTodo => {
             this.tasks = this.tasks.map(t => t.id === task.id ? { ...t, ...updatedTodo } : t);
             this.toastController.showToast('Task updated successfully');
-          },
-          error => {
-            console.error('Error updating task:', error);
           }
         );
     }

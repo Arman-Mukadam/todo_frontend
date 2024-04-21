@@ -21,7 +21,7 @@
         <span class="task-input" [ngClass]="{completed: task.completed}">{{task.todo}}</span>
         }@else {
         <span>
-          <ion-input type="text" [(ngModel)]="task.todo" (keyup.enter)="editTask(task)" #taskInput></ion-input>
+          <ion-input type="text" [(ngModel)]="task.todo" (keyup.enter)="updateTask(task)" #taskInput></ion-input>
         </span>
         }
       </div>

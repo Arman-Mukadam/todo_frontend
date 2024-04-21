@@ -11,6 +11,7 @@ import { Todos } from 'src/models/todos.interface';
 export class TodoService {
 
   constructor(private http: HttpClient) { }
+  
   getTodos(): Observable<any[]> {
     const url = `${domain}/getTodos`;
     return this.http.get<any[]>(url);
