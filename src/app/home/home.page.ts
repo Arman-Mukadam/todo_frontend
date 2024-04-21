@@ -89,13 +89,15 @@ export class HomePage {
     } else {
       this.beforeEdit = '';
     }
-    task.editing = false;
+    if (task.todo.trim().length > 0) {
+      task.editing = false;
+    }
     this.currentlyEditingTask = null;
   }
 
   editTask(task: Todos) {
     console.log(this.beforeEdit, this.afterEdit);
-    if (this.afterEdit !== this.beforeEdit) {
+    if (this.afterEdit !== this.beforeEdit && task.todo.trim().length > 0) {
       this.todoService.updateTodo(task.id, task.todo)
         .subscribe(
           updatedTodo => {
