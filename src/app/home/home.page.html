@@ -1,0 +1,48 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Welcome to Todo App
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <div id="container">
+    <div class="add-todo">
+      <ion-input fill="outline" [(ngModel)]="taskTitle" class="input" placeholder="Things you want to do?">
+        <ion-button [disabled]="taskTitle ===''" class="input-button" (click)="addTask()">+</ion-button>
+      </ion-input>
+    </div>
+    @for(task of tasks;track $index){
+    <div class="main-task">
+      <div class="todo-field">
+        @if(!task.editing){
+        <span class="task-input" [ngClass]="{completed: task.completed}">{{task.todo}}</span>
+        }@else {
+        <span>
+          <ion-input type="text" [(ngModel)]="task.todo" (keyup.enter)="updateTask(task)" #taskInput></ion-input>
+        </span>
+        }
+      </div>
+      <div class="buttons-ud">
+        <ion-button fill="clear" (click)="!task.editing?before(task):after(task);">
+          <ion-icon [name]="task.editing?'checkmark-done':'open-outline'"></ion-icon>
+        </ion-button>
+        <ion-button fill="clear" color="danger" (click)="deleteTask(task.id)"><ion-icon
+            name="trash"></ion-icon></ion-button>
+      </div>
+    </div>
+    <div class="error-text">
+      @if(task.todo.trim().length === 0){
+      <span>Please Enter Something</span>
+      }
+    </div>
+    }
+
+  </div>
+  <div>
+    <ion-button (click)="registerNotifications()">Register</ion-button>
+    <ion-button (click)="getDeliveredNotifications()">Notifications</ion-button>
+  </div>
+</ion-content>

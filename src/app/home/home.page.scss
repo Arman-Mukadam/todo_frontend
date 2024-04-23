@@ -1,0 +1,50 @@
+#container {
+  padding: 24px;
+}
+
+ion-input {
+  min-height: 45px !important;
+}
+
+.input {
+  position: relative;
+  padding-right: 60px !important;
+  margin-bottom: 25px;
+}
+
+.input-button {
+  position: absolute;
+  margin: 1px;
+  padding: 0 !important;
+  top: 0 !important;
+  right: 0;
+  font-size: 25px;
+  width: 50px;
+  bottom: 0;
+  height: auto;
+  color: #ffffff !important;
+  --background: #2dd55b;
+}
+
+.buttons-ud {
+  display: flex;
+  justify-content: space-between;
+}
+
+.main-task {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #7e7b7b50;
+  align-items: center;
+  margin-bottom: 15px;
+  padding-left: 14px;
+}
+
+.error-text {
+  margin-bottom: 15px;
+  span {
+    color: #ff0000;
+
+  }
+
+}
