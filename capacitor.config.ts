@@ -4,6 +4,9 @@ const config: CapacitorConfig = {
   appId: 'push.notification.test',
   appName: 'pushNotificationDemo',
   webDir: 'www',
+  server: {
+    androidScheme: "https"
+  },
   plugins: {
     PushNotifications: {
       presentationOptions: ["badge", "sound", "alert"],

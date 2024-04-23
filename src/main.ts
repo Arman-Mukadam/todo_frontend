@@ -6,8 +6,8 @@ import { IonicRouteStrategy, provideIonicAngular } from '@ionic/angular/standalo
 import { routes } from './app/app.routes';
 import { AppComponent } from './app/app.component';
 import { environment } from './environments/environment';
-import {  provideServiceWorker } from '@angular/service-worker';
-import { AngularFireModule } from '@angular/fire/compat';
+import { provideServiceWorker } from '@angular/service-worker';
+// import { AngularFireModule } from '@angular/fire/compat';
 
 if (environment.production) {
   enableProdMode();
@@ -18,13 +18,10 @@ bootstrapApplication(AppComponent, {
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     provideIonicAngular(),
     provideRouter(routes),
-    importProvidersFrom(AngularFireModule.initializeApp(environment.firebaseConfig)),
-      // ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
-      // ),
-    provideServiceWorker('ngsw-worker.js', {
-      enabled: !isDevMode(),
-      registrationStrategy: 'registerWhenStable:30000'
-    })
-    
+    // provideServiceWorker('ngsw-worker.js', {
+    //   enabled: !isDevMode(),
+    //   registrationStrategy: 'registerWhenStable:30000'
+    // })
+
   ],
 });
